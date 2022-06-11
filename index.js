@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const res = require('express/lib/response')
+const config = require('config')
 
 const app = express()
 
@@ -18,7 +18,7 @@ app.get('*',(req,res)=>{
     res.send('BAD_REQUEST')
 })
 
-port = 3300
+port = config.get('port') || 8080
 
 app.listen(port,()=>{
     console.log(`Server running on port ${port}`)
